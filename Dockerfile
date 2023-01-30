@@ -24,6 +24,8 @@ EXPOSE 80 443
 #Volumes
 #VOLUME /opt/proxy-conf
 COPY files/000-default.conf /etc/apache2/sites-available/
+COPY certs/privkey.pem certs/fullchain.pem /etc/ssl/certs/
+COPY certs/nginx-wiki-fullchain.pem certs/nginx-wiki-privkey.pem /etc/ssl/certs/
 
 #Launch Apache2 on FOREGROUND
 COPY files/apache-proxy-start.sh /opt/
